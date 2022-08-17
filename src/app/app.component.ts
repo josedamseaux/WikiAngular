@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Observable, tap } from 'rxjs';
+import { Article, SearchService } from './pages/search/services/search.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'wikiangular';
+  
+    article$ !: Observable<Article[]>
+    constructor(private readonly searchSvc: SearchService){}
+
+
+    onSearch(term: string): void {
+
+      this.article$ = this.searchSvc.search(term);
+
+      this.searchSvc.search(term)
+      .pipe( 
+       tap(res => console.log(res)))
+       .subscribe();
+     }
 }

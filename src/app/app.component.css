@@ -1,0 +1,22 @@
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+.title{
+    margin-top: 10px;
+}
+
+.containter{
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    border: 1px solid #dedede;
+    background-color: #d6cbcb;
+    height: 150px;
+}
